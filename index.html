@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cyber Love CTF – Happy Birthday ❤️</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #00f2fe, #0f2027 60%);
+      color: #e6faff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background: rgba(0, 20, 30, 0.88);
+      padding: 28px;
+      border-radius: 18px;
+      width: 95%;
+      max-width: 600px;
+      box-shadow: 0 0 25px rgba(0, 242, 254, 0.35);
+      border: 1px solid rgba(0,242,254,0.3);
+      text-align: center;
+    }
+    h1 { color: #7cf9ff; }
+    h2 { color: #ff9ecb; }
+    input {
+      padding: 11px;
+      width: 85%;
+      border-radius: 10px;
+      border: none;
+      margin-top: 12px;
+      background: #031b26;
+      color: #7cf9ff;
+      outline: none;
+    }
+    button {
+      margin-top: 16px;
+      padding: 10px 22px;
+      border-radius: 20px;
+      border: none;
+      background: linear-gradient(135deg, #ff4fd8, #ff8fb1);
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .hidden { display: none; }
+    .message {
+      margin-top: 20px;
+      line-height: 1.6;
+      font-size: 15.5px;
+    }
+    .terminal {
+      background: #020c12;
+      padding: 12px;
+      border-radius: 10px;
+      margin-top: 10px;
+      font-family: Consolas, monospace;
+      font-size: 13px;
+      text-align: left;
+    }
+    .heart { color: #ff6fb7; }
+  </style>
+</head>
+<body>
+<div class="card">
+  <h1>CAPTURE THE FLAG BIRTHDAY</h1>
+  <p>
+    For <strong>Raihan Fitrah Hanafi</strong><br>
+    December 18, 2002
+  </p>
+
+  <p><strong>Mission:</strong> Unlock every stage to read the full letter 🤍</p>
+
+  <!-- STAGE 1 -->
+  <div id="stage1">
+    <h2>Stage 1 — Recon</h2>
+    <p>“One word I always use to call you”</p>
+    <input id="s1" placeholder="jawaban..." />
+    <br><button onclick="stage1()">Submit</button>
+  </div>
+
+  <!-- MESSAGE 1 -->
+  <div id="msg1" class="hidden message">
+
+    <P>congratulation sayang ❤️</P>
+    <p>
+      Abang itu manis banget, keren parah, dan kalo ketawa lucu banget — apalagi kalau abang senyum ke arah saya.<br>
+      Senyum abang itu manis banget sampai hati saya mau leleh.<br>
+      Senyum abang ini yang selalu ngebuat saya ngerasa nyaman.<br>
+      Setiap kali saya liat abang senyum, semua capek dan kekhawatiran saya langsung terhempas jauh.
+    </p>
+    <button onclick="next(2)">Next Mission ➜</button>
+  </div>
+
+  <!-- STAGE 2 -->
+  <div id="stage2" class="hidden">
+    <h2>Stage 2 — Decode</h2>
+    <p>Decode Base64 berikut:</p>
+    <div class="terminal">aGFwcHkgYmlydGhkYXkgc2F5YW5na3V1</div>
+    <input id="s2" placeholder="hasil decode..." />
+    <br><button onclick="stage2()">Verify</button>
+  </div>
+
+  <!-- MESSAGE 2 -->
+  <div id="msg2" class="hidden message">
+    <P>congratulation sayang ❤️</P>
+    <p>
+      Menurut saya abang itu salah satu dari 367 taruna yang cerdas (ini serius ya).<br>
+      Saat ini abang udah semester 7, termasuk semester dengan fase tersulit dalam pendidikan.<br>
+      Saya harap abang bisa fokus nyelesaiin Tugas Akhirnya abang.<br>
+      Saya liat setiap perjuangan abang, kesabaran abang, dan keteguhan hati abang bisa nyelesaiin masa akhir pendidikan abang di sini.<br>
+      Sebangga itu saya sama abang, dan saya bersyukur bisa dipertemukan dengan abang di sini.<br>
+      Bagi saya, bertemu dengan abang adalah salah satu anugerah Tuhan yang paling istimewa, dan saya akan menjaga kepercayaan abang sebaik yang saya bisa.
+    </p>
+    <button onclick="next(3)">Next Mission ➜</button>
+  </div>
+
+  <!-- STAGE 3 -->
+  <div id="stage3" class="hidden">
+    <h2>Stage 3 — Capture The Flag</h2>
+    <p>“The <strong>month</strong> when you told me how you truly felt.” </p>
+    <p>Format: <code>FLAG{MM}</code></p>
+    <input id="s3" placeholder="FLAG{..}" />
+    <br><button onclick="stage3()">Capture</button>
+  </div>
+
+  <!-- MESSAGE 3 -->
+  <div id="msg3" class="hidden message">
+    <P>congratulation sayang ❤️</P>
+    <p>
+      Saya mengagumi betapa besar cinta abang pada keluarga abang,<br>
+      betapa lembut dan hangat hati abang kepada orang-orang di sekitar abang,<br>
+      dan betapa tulus cara abang memperlakukan saya selama ini.<br>
+      Walaupun abang dan saya belum resmi bersama (masih on the way),<br>
+      dari hari ke hari lewat sikap dan perhatian abang, abang selalu menunjukkan betapa besarnya rasa peduli abang —
+      dan itu berarti segalanya bagi saya.
+    </p>
+    <button onclick="complete()">Complete Mission ❤️</button>
+  </div>
+
+  <!-- FINAL -->
+  <div id="final" class="hidden message">
+    <h2>💖 Mission Complete 💖</h2>
+    <p>
+      Sekarang abang nambah umur nih, berarti saat abang melangkah ke babak baru dalam hidup abang,<br>
+      saya berharap semua impian abang dimudahkan jalannya.<br>
+      Semoga abang lulus dengan hasil terbaik,<br>
+      dan semoga saya masih diizinkan untuk tetap berada di sisi abang —<br>
+      mendukung abang, mendoakan abang, menyayangi abang dalam diam, dan memberikan kenyamanan dengan sepenuh hati saya.<br><br>
+      Abang jangan bertingkah di tingkat 4 ini, jangan buat pelanggaran besar yaa abang,<br>
+      jangan bosen belajar, apalagi bosen sama saya.<br><br>
+      Apa pun yang terjadi nanti, saya ingin abang tahu satu hal:<br>
+      saya selalu mendoakan abang dalam setiap langkah yang abang ambil.<br>
+      Terus melangkah dengan hati abang yang tulus dan tekad abang yang kuat.<br>
+      Jika suatu hari abang lelah, semoga abang ingat bahwa ada malaikat yang percaya sama abang,
+      bangga sama abang, dan dengan tenang akan tetap menunggu abang di sini <span class="heart">💖</span>
+    </p>
+  </div>
+</div>
+
+<script>
+  const s1 = document.getElementById('s1');
+  const s2 = document.getElementById('s2');
+  const s3 = document.getElementById('s3');
+
+  const stage1DivEl = document.getElementById('stage1');
+  const stage2DivEl = document.getElementById('stage2');
+  const stage3DivEl = document.getElementById('stage3');
+
+  const msg1 = document.getElementById('msg1');
+  const msg2 = document.getElementById('msg2');
+  const msg3 = document.getElementById('msg3');
+  const finalMsg = document.getElementById('final');
+
+  function stage1() {
+    if (s1.value.toLowerCase().trim() === 'sayang') {
+      stage1DivEl.classList.add('hidden');
+      msg1.classList.remove('hidden');
+    } else {
+      alert('Belum tepat 🤍');
+    }
+  }
+
+  function stage2() {
+    if (s2.value.toLowerCase().trim() === 'happy birthday sayangkuu') {
+      stage2DivEl.classList.add('hidden');
+      msg2.classList.remove('hidden');
+    } else {
+      alert('Decode masih salah');
+    }
+  }
+
+  function stage3() {
+    if (s3.value.trim() === 'FLAG{11}') {
+      stage3DivEl.classList.add('hidden');
+      msg3.classList.remove('hidden');
+    } else {
+      alert('Flag salah 🚫');
+    }
+  }
+
+  function next(n) {
+    document.getElementById('msg' + (n - 1)).classList.add('hidden');
+    document.getElementById('stage' + n).classList.remove('hidden');
+  }
+
+  function complete() {
+    msg3.classList.add('hidden');
+    finalMsg.classList.remove('hidden');
+  }
+</script>
+</body>
+</html>
